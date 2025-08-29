@@ -1,0 +1,18 @@
+---
+import {CarouselTestimonial} from "./CarouselTestimonial";
+import Title from "./Title.astro";
+---
+
+<section
+    class="w-full h-auto pt-[96px] pb-[80px] px-12 flex flex-col gap-4 items-center justify-center"
+>
+    <Title
+        tag="Testimonial"
+        title="Trusted by Growing SaaS Brands"
+        description="Proven results from companies using this template."
+        styleType="center"
+    />
+    <div class="h-screen">
+        <CarouselTestimonial client:only="react"></CarouselTestimonial>
+    </div>
+</section>

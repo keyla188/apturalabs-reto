@@ -1,0 +1,84 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    price: string;
+    features: string[];
+    button?: string;
+    primary?: boolean;
+}
+
+const {
+    title,
+    description,
+    price,
+    features,
+    button = "Get Started",
+    primary = false,
+} = Astro.props;
+---
+
+<div
+    class={`flex flex-col gap-10 p-6 rounded-3xl shadow-[0px_3px_8px_4px_rgba(0,0,0,0.03)] hover:shadow-md transition
+    ${primary ? "bg-primary text-white" : "bg-white text-black"}`}
+>
+
+    <div class="flex flex-col gap-1">
+        <h4 class="text-lg font-bold">{title}</h4>
+        <p class={` ${primary ? "text-white/80" : "text-gray-600"}`}>
+            {description}
+        </p>
+    </div>
+
+
+    <div class="flex flex-row gap-1 items-end">
+        <h2 class="text-5xl font-bold">{price}</h2>
+        <h6
+            class={`pb-1 font-medium ${primary ? "text-white/70" : "text-gray-600"}`}
+        >
+            /month
+        </h6>
+    </div>
+
+
+    <div class="flex flex-col gap-2">
+        {
+            features.map((feature) => (
+                <div class="flex flex-row gap-3 items-center">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class={`icon icon-tabler icons-tabler-filled icon-tabler-circle-check ${primary ? "text-white" : "text-black"}`}
+                    >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" />
+                    </svg>
+                    <p class={`${primary ? "text-white/90" : "text-gray-600"}`}>
+                        {feature}
+                    </p>
+                </div>
+            ))
+        }
+    </div>
+
+    <a href="#">
+        <div
+            class={`w-full font-semibold relative overflow-hidden py-2 px-6 rounded-full shadow-custom-inset group text-center
+        ${primary ? "bg-white text-black transition-text duration-300 hover:text-gray-600" : "bg-primary text-white"}`}
+        >
+            <span class="relative z-10">{button}</span>
+            <span
+                aria-hidden="true"
+                class="pointer-events-none absolute top-0 left-0 h-[200%] w-2/3
+        bg-gradient-to-r from-transparent via-white/70 to-transparent
+        -translate-x-[150%] rotate-12 transform
+        opacity-0 blur-md
+        transition-all duration-[1300ms] ease-in-out
+        group-hover:translate-x-[300%] group-hover:opacity-90"
+            ></span>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,109 @@
+<!-- Navbar -->
+<div class="fixed top-0 left-0 w-full z-[100] flex justify-center items-start h-20 md:items-center md:h-auto opacity-0 animate-fadeUp delay-0">
+  <div
+    class="bg-white flex flex-row justify-between items-center gap-2 
+           w-[720px] max-w-full px-4 h-full 
+           md:h-auto md:py-3 md:rounded-full md:shadow-[0px_3px_8px_4px_rgba(0,0,0,0.03)]"
+  >
+    <a href="/">
+      <img alt="logo" width="120" src="logo.avif" />
+    </a>
+
+    <div class="hidden md:flex gap-6">
+      <a href="#about">About</a>
+      <a href="#solution">Solution</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+
+    <a href="#" class="hidden md:inline-block">
+      <div
+        class="relative overflow-hidden bg-primary text-white py-2 px-6 rounded-full shadow-custom-inset group"
+      >
+        <span class="relative z-10">Buy Template</span>
+        <span
+          aria-hidden="true"
+          class="pointer-events-none absolute top-0 left-0 h-[200%] w-2/3
+          bg-gradient-to-r from-transparent via-white/70 to-transparent
+          -translate-x-[150%] rotate-12 transform
+          opacity-0 blur-md
+          transition-all duration-[1300ms] ease-in-out
+          group-hover:translate-x-[300%] group-hover:opacity-90"
+        ></span>
+      </div>
+    </a>
+
+    <button
+      id="menu-btn"
+      class="md:hidden flex flex-col justify-center items-center gap-[4px] transition-all duration-300"
+    >
+      <span class="line block w-6 h-[2px] bg-black transition-all duration-300"></span>
+      <span class="line block w-6 h-[2px] bg-black transition-all duration-300"></span>
+      <span class="line block w-6 h-[2px] bg-black transition-all duration-300"></span>
+    </button>
+  </div>
+</div>
+
+<div
+  id="mobile-menu"
+  class="z-[50] fixed inset-0 bg-white flex flex-col items-center justify-center gap-8 md:hidden transition-all duration-500 ease-in-out opacity-0 pointer-events-none"
+>
+  <a href="#about" class="menu-link text-lg">About</a>
+  <a href="#solution" class="menu-link text-lg">Solution</a>
+  <a href="#pricing" class="menu-link text-lg">Pricing</a>
+  <a href="#" class="menu-link w-full px-6">
+    <div
+      class="relative overflow-hidden bg-primary text-white py-2 px-6 rounded-full shadow-custom-inset group text-center"
+    >
+      <span class="relative z-10">Buy Template</span>
+      <span
+        aria-hidden="true"
+        class="pointer-events-none absolute top-0 left-0 h-[200%] w-2/3
+        bg-gradient-to-r from-transparent via-white/70 to-transparent
+        -translate-x-[150%] rotate-12 transform
+        opacity-0 blur-md
+        transition-all duration-[1300ms] ease-in-out
+        group-hover:translate-x-[300%] group-hover:opacity-90"
+      ></span>
+    </div>
+  </a>
+</div>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const links = document.querySelectorAll(".menu-link");
+
+  btn?.addEventListener("click", toggleMenu);
+  links.forEach(link => link.addEventListener("click", closeMenu));
+
+  function toggleMenu() {
+    const isClosed = menu?.classList.contains("opacity-0");
+
+    if (isClosed) {
+      menu?.classList.remove("opacity-0", "pointer-events-none");
+      menu?.classList.add("opacity-100", "pointer-events-auto");
+      btn?.classList.add("open");
+    } else {
+      closeMenu();
+    }
+  }
+
+  function closeMenu() {
+    menu?.classList.remove("opacity-100", "pointer-events-auto");
+    menu?.classList.add("opacity-0", "pointer-events-none");
+    btn?.classList.remove("open");
+  }
+</script>
+
+<style>
+  /* Animación hamburguesa -> X */
+  #menu-btn.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  #menu-btn.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-btn.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>

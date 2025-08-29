@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import PainPointSection from '../components/PainPointSection.astro';
+import {ImageScroll} from '@/components/ImageAnimation';
+import SolutionSection from '@/components/SolutionSection.astro';
+import TestimonialSection from '@/components/TestimonialSection.astro';
+import FaqSection from '@/components/FaqSection.astro';
+import PricingSection from '@/components/PricingSection.astro';
+import CtaSection from '@/components/CtaSection.astro';
+---
+
+<Layout>
+	<Hero></Hero>
+	<ImageScroll  client:only="react" src="/imageAnimate.avif" alt="plataforma"></ImageScroll>
+	<PainPointSection></PainPointSection>
+	<SolutionSection></SolutionSection>
+	<TestimonialSection></TestimonialSection>
+	<FaqSection></FaqSection>
+	<PricingSection></PricingSection>
+	<CtaSection></CtaSection>
+</Layout>

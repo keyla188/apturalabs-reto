@@ -1,0 +1,13 @@
+---
+import { Marquee } from "@/components/magicui/marquee";
+---
+<div class="relative flex w-full max-w-[740px] flex-col items-center justify-center overflow-hidden opacity-0 animate-fadeUp delay-5">
+  <Marquee >
+    <img src="/carousel/logo1.avif" alt="Logo 1" class="h-8 mx-4" />
+    <img src="/carousel/logo2.png" alt="Logo 2" class="h-8 mx-4" />
+    <img src="/carousel/logo3.avif" alt="Logo 3" class="h-8 mx-4" />
+    <img src="/carousel/logo4.avif" alt="Logo 4" class="h-8 mx-4" />
+  </Marquee>
+  <div class="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+</div>

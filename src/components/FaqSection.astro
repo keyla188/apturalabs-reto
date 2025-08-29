@@ -1,0 +1,21 @@
+---
+import Faq from "./Faq";
+import Title from "./Title.astro";
+const faqItems = [
+  { question: "How easy is it to customize this template?", answer: "This template is built for flexibility. You can easily change colors, fonts, layouts, and content to match your brand with just a few clicks—no coding needed." },
+  { question: "Is the template mobile-responsive?", answer: "Absolutely! The template is fully responsive and optimized for all devices, ensuring a seamless experience for your users on mobile, tablet, or desktop." },
+  { question: "What if I need help customizing the template?", answer: "We’ve got you covered! The template comes with detailed documentation, and our support team is always ready to assist you with any customization questions." },
+];
+---
+
+<section
+    class="w-full h-auto pt-[96px] pb-[80px] px-12 flex flex-col gap-8 items-center justify-center"
+>
+    <Title
+        title="FAQ"
+        styleType="center"
+    />
+    <div class="w-full max-w-[800px]">
+        <Faq client:only="react" items={faqItems}></Faq>
+    </div>
+</section>
